@@ -61,7 +61,7 @@ fechaCita.addEventListener("change", () => {
     }
 });
 
-// Enviar formulario para crear un carro
+// Enviar formulario para crear una cita
 createAppointmentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 

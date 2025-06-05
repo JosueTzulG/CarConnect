@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCitas("maniana", citasManianaSection, "No hay citas registradas para mañana.");
 });
 
-// Función genérica para cargar y mostrar citas
+// Función genérica para cargar y mostrar citas de hoy y maniana
 function loadCitas(tipo, section, emptyMessage) {
     const fullUrl = buildApiUrl(`Appointments/filter?tipo=${tipo}`);
     fetch(fullUrl)
@@ -60,16 +60,16 @@ function loadCitas(tipo, section, emptyMessage) {
                         `).join("")}
                     </ul>
                 `;
-                // Reutilizar la función para cargar datos y asignar eventos
                 loadCarDetails(data, "#car", displayCarDetails);
             }
         })
         .catch(error => {
+            console.error("Error al cargar citas:", error);
             section.innerHTML = `<h2>Citas ${capitalize(tipo)}</h2><p>Error al cargar citas: ${error.message}</p>`;
         });
 }
 
-// Modificar `fetchCitas` para usar las funciones reutilizables
+// Función para cargar y mostrar citas con filtro de pasado y futuro
 function fetchCitas(tipo, titulo) {
     contentWithButtons.innerHTML = ``;
     const fullUrl = buildApiUrl(`appointments/filter?tipo=${tipo}`);
@@ -99,11 +99,11 @@ function fetchCitas(tipo, titulo) {
                         `).join("")}
                     </ul>
                 `;
-                // Reutilizar la función para cargar datos y asignar eventos
                 loadCarDetails(data, "#car", displayCarDetails);
             }
         })
         .catch(error => {
+            console.error("Error al cargar citas:", error);
             contentWithButtons.innerHTML = `<h2>${titulo}</h2><p>Error al cargar citas: ${error.message}</p>`;
         });
 }

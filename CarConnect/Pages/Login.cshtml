@@ -9,11 +9,11 @@
 <form method="post">
     <div>
         <label for="username">Username:</label>
-        <input type="text" id="username" asp-for="Username" />
+        <input type="text" id="username" asp-for="Username" required/>
     </div>
     <div>
         <label for="password">Password:</label>
-        <input type="password" id="password" asp-for="Password" />
+        <input type="password" id="password" asp-for="Password" required/>
     </div>
     <button type="submit">Login</button>
 </form>

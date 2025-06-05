@@ -9,6 +9,7 @@
         document.getElementById("filterForm").reset();
     });
 </script>
+
 <h1>Búsqueda de Carros</h1>
 <form id="filterForm" method="get">
     <select asp-for="CarType" asp-items="Model.Types">
@@ -47,8 +48,9 @@
         <div id="carInfoContainer" style="display: none; border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
             <h3>Información del Carro</h3>
             <p id="carInfoContent"></p>
-
             <button id="createAppointmentButton">Agendar Cita</button>
+
+            <!-- Contenedor dinámico para agendar una cita -->
             <div id="createAppointmentFormContainer" style="display: none;">
                 <h3>Crear cita</h3>
                 <form id="createAppointmentForm">
